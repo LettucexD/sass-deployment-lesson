@@ -1,0 +1,51 @@
+// link to our variables file in our partials folder
+@import "partials/variables";
+// link to our home file in our partials folder
+@import "partials/home";
+
+body {
+    font-size: 40px;
+    color: blue;
+}
+
+// Mixin/Inheritance
+@mixin main-background ($color: beige) {
+    font-size: 50px;
+    padding: 30px;
+    color: $color;
+}
+
+header {
+    h1 {
+        @include main-background($color: orange);
+    }
+}
+
+footer {
+    p {
+        @include main-background($color: green);
+    }
+}
+
+
+// Extensions
+%msg-shared {
+    border: 2px solid black;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.success {
+    @extend %msg-shared;
+    color: green;
+}
+
+.error {
+    @extend %msg-shared;
+    color: red;
+}
+
+.warning {
+    @extend %msg-shared;
+    color: orange;
+}
